@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8080/services/cards/v1"
+           targetNamespace="http://localhost:8080/services/cards/v1" >
+    <xs:element name="getCardRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="length" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--we use new namespace on same names different object-->
+    <xs:element name="getCardResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CardResponse" type="tns:CardResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--complex type defines new namespace-->
+    <xs:complexType name="CardResponse">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="CardId" type="xs:string"/>
+            <xs:element name="statusCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
